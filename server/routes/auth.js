@@ -8,6 +8,15 @@ router.post('/register', async (req, res) => {
     const { name, email, password, role, address, contact,
       ngoName, ngoType, orgName, orgType, orgCategory, peopleServed } = req.body;
 
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not configured');
+      return res.status(503).json({ message: 'Authentication is unavailable. Check the server JWT_SECRET configuration.' });
+    }
+
+    if (!name || !email || !password || !role) {
+      return res.status(400).json({ message: 'Name, email, password, and role are required' });
+    }
+
     if (await User.findOne({ email }))
       return res.status(400).json({ message: 'Email already registered' });
 
