@@ -7,7 +7,7 @@ const app = express();
 app.use(cors({
   origin: [
     'https://food-bridge-3k5m.vercel.app',
-    'https://food-bridge-3k5m-1q3vh8p1-todarmalom388-3750.vercel.app'
+    'https://food-bridge-3k5m-fefecp2ti-todarmalom388-3750.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
